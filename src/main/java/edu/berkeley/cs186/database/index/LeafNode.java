@@ -373,6 +373,8 @@ class LeafNode extends BPlusNode {
     public static LeafNode fromBytes(BPlusTreeMetadata metadata, BufferManager bufferManager,
                                      LockContext treeContext, long pageNum) {
         // TODO(proj2): implement
+
+        //Once you have implemented fromBytes you should be passing TestLeafNode::testToAndFromBytes.
         // Note: LeafNode has two constructors. To implement fromBytes be sure to
         // use the constructor that reuses an existing page instead of fetching a
         // brand new one.
