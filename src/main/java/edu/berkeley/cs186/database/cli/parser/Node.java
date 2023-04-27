@@ -8,6 +8,7 @@ package edu.berkeley.cs186.database.cli.parser;
 
 public
 interface Node {
+
   /** This method is called after the node has been made the current
     node.  It indicates that child nodes can now be added to it. */
   public void jjtOpen();

@@ -12,8 +12,10 @@ class ASTSQLStatementList extends SimpleNode {
     super(p, id);
   }
 
+
   /** Accept the visitor. **/
   public void jjtAccept(RookieParserVisitor visitor, Object data) {
+
     visitor.visit(this, data);
   }
 }

@@ -1,0 +1,24 @@
+options {
+    STATIC = false;
+    OUTPUT_DIRECTORY = "src/main/java/edu/berkeley/cs186/database/learning/playjj";
+}
+
+PARSER_BEGIN(Dummy)
+
+public class Dummy {
+
+}
+PARSER_END(Dummy)
+
+SKIP : {
+    <[
+    " ",
+    "\t",
+    "\r",
+    "\n"
+    ]>
+}
+
+TOKEN : {
+    <INTEGER: (["0"-"9"])+>
+}

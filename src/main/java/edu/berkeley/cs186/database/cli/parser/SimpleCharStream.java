@@ -36,6 +36,8 @@ public class SimpleCharStream
   public void setTabSize(int i) { tabSize = i; }
   public int getTabSize() { return tabSize; }
 
+
+
   protected void ExpandBuff(boolean wrapAround)
   {
     char[] newbuffer = new char[bufsize + 2048];
@@ -78,6 +80,7 @@ public class SimpleCharStream
     {
       throw new Error(t.getMessage());
     }
+
 
     bufsize += 2048;
     available = bufsize;
@@ -204,7 +207,6 @@ public class SimpleCharStream
    * @deprecated
    * @see #getEndColumn
    */
-
   public int getColumn() {
     return bufcolumn[bufpos];
   }
@@ -213,7 +215,6 @@ public class SimpleCharStream
    * @deprecated
    * @see #getEndLine
    */
-
   public int getLine() {
     return bufline[bufpos];
   }
@@ -240,6 +241,7 @@ public class SimpleCharStream
 
 /** Backup a number of characters. */
   public void backup(int amount) {
+
     inBuf += amount;
     if ((bufpos -= amount) < 0)
       bufpos += bufsize;
@@ -465,4 +467,4 @@ public class SimpleCharStream
   boolean getTrackLineColumn() { return trackLineColumn; }
   void setTrackLineColumn(boolean tlc) { trackLineColumn = tlc; }
 }
-/* JavaCC - OriginalChecksum=9236a43628831630b4843d0fd499b6c0 (do not edit this line) */
+/* JavaCC - OriginalChecksum=39b19e997443b2e34a4597e87180b86b (do not edit this line) */

@@ -12,6 +12,7 @@ package edu.berkeley.cs186.database.cli.parser;
  * mechanisms so long as you retain the public fields.
  */
 public class ParseException extends Exception {
+
   /**
    * The version identifier for this Serializable class.
    * Increment only if the <i>serialized</i> form of the
@@ -60,10 +61,11 @@ public class ParseException extends Exception {
     super(message);
   }
 
+
   /**
    * This is the last token that has been consumed successfully.  If
    * this object has been created due to a parse error, the token
-   * followng this token will (therefore) be the first error token.
+   * following this token will (therefore) be the first error token.
    */
   public Token currentToken;
 
@@ -91,6 +93,7 @@ public class ParseException extends Exception {
   private static String initialise(Token currentToken,
                            int[][] expectedTokenSequences,
                            String[] tokenImage) {
+
     StringBuffer expected = new StringBuffer();
     int maxSize = 0;
     for (int i = 0; i < expectedTokenSequences.length; i++) {
@@ -119,7 +122,9 @@ public class ParseException extends Exception {
       retval += " \"";
       tok = tok.next;
     }
-    retval += "\" at line " + currentToken.next.beginLine + ", column " + currentToken.next.beginColumn;
+    if (currentToken.next != null) {
+      retval += "\" at line " + currentToken.next.beginLine + ", column " + currentToken.next.beginColumn;
+    }
     retval += "." + EOL;
     
     
@@ -136,6 +141,7 @@ public class ParseException extends Exception {
     
     return retval;
   }
+
 
   /**
    * Used to convert raw characters to their escaped version
@@ -186,4 +192,4 @@ public class ParseException extends Exception {
    }
 
 }
-/* JavaCC - OriginalChecksum=76056d9538bf41083ddfb94843b3c7d4 (do not edit this line) */
+/* JavaCC - OriginalChecksum=ca09b11a665a0f9b87d25d8eb475333c (do not edit this line) */

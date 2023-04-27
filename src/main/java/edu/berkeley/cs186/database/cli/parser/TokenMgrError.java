@@ -3,8 +3,10 @@
 package edu.berkeley.cs186.database.cli.parser;
 
 /** Token Manager Error. */
+
 public class TokenMgrError extends Error
 {
+
   /**
    * The version identifier for this Serializable class.
    * Increment only if the <i>serialized</i> form of the
@@ -94,7 +96,7 @@ public class TokenMgrError extends Error
    * token manager to indicate a lexical error.
    * Parameters :
    *    EOFSeen     : indicates if EOF caused the lexical error
-   *    curLexState : lexical state in which this error occurred
+   *    lexState    : lexical state in which this error occurred
    *    errorLine   : line number when the error occurred
    *    errorColumn : column number when the error occurred
    *    errorAfter  : prefix that was seen before this error occurred
@@ -102,12 +104,12 @@ public class TokenMgrError extends Error
    * Note: You can customize the lexical error message by modifying this method.
    */
   protected static String LexicalErr(boolean EOFSeen, int lexState, int errorLine, int errorColumn, String errorAfter, int curChar) {
-    char curChar1 = (char)curChar;
-    return("Lexical error at line " +
-          errorLine + ", column " +
-          errorColumn + ".  Encountered: " +
-          (EOFSeen ? "<EOF> " : ("\"" + addEscapes(String.valueOf(curChar1)) + "\"") + " (" + curChar + "), ") +
-          "after : \"" + addEscapes(errorAfter) + "\"");
+    return("Lexical error at line " + //
+          errorLine + ", column " + //
+          errorColumn + ".  Encountered: " + //
+          (EOFSeen ? "<EOF>" : ("'" + addEscapes(String.valueOf((char) curChar)) + "' (" + curChar + "),")) + //
+          (errorAfter == null || errorAfter.length() == 0 ? "" : " after prefix \"" + addEscapes(errorAfter) + "\"")) + //
+          (lexState == 0 ? "" : " (in lexical state " + lexState + ")");
   }
 
   /**
@@ -143,4 +145,4 @@ public class TokenMgrError extends Error
     this(LexicalErr(EOFSeen, lexState, errorLine, errorColumn, errorAfter, curChar), reason);
   }
 }
-/* JavaCC - OriginalChecksum=a6671a81157f2990952916e79197e45f (do not edit this line) */
+/* JavaCC - OriginalChecksum=8ec4b966be854f1a149c3379592897d8 (do not edit this line) */

@@ -4,6 +4,7 @@ package edu.berkeley.cs186.database.cli.parser;
 
 public
 class SimpleNode implements Node {
+
   protected Node parent;
   protected Node[] children;
   protected int id;

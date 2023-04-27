@@ -7,6 +7,7 @@ package edu.berkeley.cs186.database.cli.parser;
  */
 
 public class Token implements java.io.Serializable {
+
   /**
    * The version identifier for this Serializable class.
    * Increment only if the <i>serialized</i> form of the

@@ -4,6 +4,7 @@ package edu.berkeley.cs186.database.cli.parser;
 
 /** Token Manager. */
 public class RookieParserTokenManager implements RookieParserConstants {
+
   /** Debug output. */
   public  java.io.PrintStream debugStream = System.out;
   /** Set debug output. */
@@ -992,9 +993,7 @@ protected Token jjFillToken()
    beginColumn = input_stream.getBeginColumn();
    endLine = input_stream.getEndLine();
    endColumn = input_stream.getEndColumn();
-   t = Token.newToken(jjmatchedKind);
-   t.kind = jjmatchedKind;
-   t.image = curTokenImage;
+   t = Token.newToken(jjmatchedKind, curTokenImage);
 
    t.beginLine = beginLine;
    t.endLine = endLine;
@@ -1135,6 +1134,7 @@ private void jjCheckNAddStates(int start, int end)
 
     /** Constructor. */
     public RookieParserTokenManager(SimpleCharStream stream){
+
       if (SimpleCharStream.staticFlag)
             throw new Error("ERROR: Cannot use a static CharStream class with a non-static lexical analyzer.");
 
@@ -1151,6 +1151,8 @@ private void jjCheckNAddStates(int start, int end)
   
   public void ReInit(SimpleCharStream stream)
   {
+
+
     jjmatchedPos =
     jjnewStateCnt =
     0;
@@ -1183,6 +1185,7 @@ private void jjCheckNAddStates(int start, int end)
     else
       curLexState = lexState;
   }
+
 
 /** Lexer state names. */
 public static final String[] lexStateNames = {
